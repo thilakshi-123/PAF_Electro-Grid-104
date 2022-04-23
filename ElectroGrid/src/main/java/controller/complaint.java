@@ -36,7 +36,7 @@ public class complaint {
 		//Convert the input string to a JSON object
 		JsonObject app = new JsonParser().parse(app_text).getAsJsonObject();
 
-		if(app.get("name").toString()!=""&&app.get("account_number").toString()!=""&&app.get("phone").toString()!=""&&app.get("email").toString()!=""&&app.get("complaintType").toString()!=""&&app.get("massage").toString()!="") {
+		if(app.get("name").getAsString()!=""&&app.get("account_number").getAsString()!=""&&app.get("phone").getAsString()!=""&&app.get("email").getAsString()!=""&&app.get("complaintType").getAsString()!=""&&app.get("massage").getAsString()!="") {
 
 			com.addComplaint(app.get("account_number").getAsString(),app.get("name").getAsString(),app.get("phone").getAsString(),app.get("email").getAsString(),app.get("complaintType").getAsString(),app.get("subject").getAsString(),app.get("massage").getAsString());
 			
@@ -66,7 +66,7 @@ public class complaint {
 		//Convert the input string to a JSON object
 		JsonObject app = new JsonParser().parse(app_text).getAsJsonObject();
 
-		if(app.get("id").toString()!=""&&app.get("name").toString()!=""&&app.get("account_number").toString()!=""&&app.get("phone").toString()!=""&&app.get("email").toString()!=""&&app.get("complaintType").toString()!=""&&app.get("massage").toString()!="") {
+		if(app.get("id").getAsString()!=""&&app.get("name").getAsString()!=""&&app.get("account_number").getAsString()!=""&&app.get("phone").getAsString()!=""&&app.get("email").getAsString()!=""&&app.get("complaintType").getAsString()!=""&&app.get("massage").getAsString()!="") {
 
 			com.editComplaint(Integer.parseInt(app.get("id").getAsString()),app.get("account_number").getAsString(),app.get("name").getAsString(),app.get("phone").getAsString(),app.get("email").getAsString(),app.get("complaintType").getAsString(),app.get("subject").getAsString(),app.get("massage").getAsString());
 			
@@ -94,7 +94,7 @@ public class complaint {
 		
 		//Convert the input string to a JSON object
 		JsonObject app = new JsonParser().parse(app_text).getAsJsonObject();
-		if(app.get("id").toString()!="") {
+		if(app.get("id").getAsString()!="") {
 	
 			com.deleteComplaint(Integer.parseInt(app.get("id").getAsString()));
 			

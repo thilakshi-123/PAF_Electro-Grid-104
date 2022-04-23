@@ -59,7 +59,7 @@ public class complaintModel {
 			
 			ResultSet resultSet = preparedStatement.executeQuery();
 			
-			data = "<table ><thead>"
+			data = "<table><thead>"
 		            +"<tr>"
 		            +"<th>ID</th>"
 	                +"<th>Account Number</th>"
@@ -130,7 +130,7 @@ public class complaintModel {
 		}
 	}
 
-	public void deleteComplaint(int id) {
+	public void deleteComplaint(int visit) {
 		Connection connection;
 		PreparedStatement preparedStatement;
 		
@@ -139,7 +139,7 @@ public class complaintModel {
 			
 			//delete hospital
 			preparedStatement = connection.prepareStatement("DELETE FROM complaint WHERE id=?");
-			preparedStatement.setInt(1, id);
+			preparedStatement.setInt(1, visit);
 			preparedStatement.execute();
 			
 			setSuccess(1);
