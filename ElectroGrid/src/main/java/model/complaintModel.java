@@ -130,7 +130,7 @@ public class complaintModel {
 		}
 	}
 
-	public void deleteComplaint(int visit) {
+	public void deleteComplaint(int id) {
 		Connection connection;
 		PreparedStatement preparedStatement;
 		
@@ -139,7 +139,7 @@ public class complaintModel {
 			
 			//delete hospital
 			preparedStatement = connection.prepareStatement("DELETE FROM complaint WHERE id=?");
-			preparedStatement.setInt(1, visit);
+			preparedStatement.setInt(1, id);
 			preparedStatement.execute();
 			
 			setSuccess(1);
