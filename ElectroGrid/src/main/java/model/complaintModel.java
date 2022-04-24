@@ -11,6 +11,7 @@ public class complaintModel {
 	
 	private int success;
 	
+	//insert function 
 	public void addComplaint(String account_number,String name,String phone,String email,String complaintType,String subject,String massage) {
 		Connection connection;
 		PreparedStatement preparedStatement;
@@ -46,6 +47,7 @@ public class complaintModel {
 		this.success = success;
 	}
 	
+	//Data display function
 	public String getComplaint() {
 		
 		Connection connection;
@@ -100,7 +102,8 @@ public class complaintModel {
 		
 		return data+"</table>";
 	}
-
+	
+	//Update function
 	public void editComplaint(int id,String account_number,String name,String phone,String email,String complaintType,String subject,String massage) {
 		Connection connection;
 		PreparedStatement preparedStatement;
@@ -130,6 +133,7 @@ public class complaintModel {
 		}
 	}
 
+	//Delete function
 	public void deleteComplaint(int id) {
 		Connection connection;
 		PreparedStatement preparedStatement;
@@ -137,7 +141,7 @@ public class complaintModel {
 		try {
 			connection = DBConnect.getDBConnection();
 			
-			//delete hospital
+			//delete complaint
 			preparedStatement = connection.prepareStatement("DELETE FROM complaint WHERE id=?");
 			preparedStatement.setInt(1, id);
 			preparedStatement.execute();
